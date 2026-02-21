@@ -1,0 +1,431 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Varusha Clinic</title>
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Arial, Helvetica, sans-serif;
+}
+
+body{
+background:#f5f9ff;
+color:#1f2d3d;
+}
+
+/* NAVBAR */
+
+.navbar{
+position:fixed;
+top:0;
+width:100%;
+display:flex;
+justify-content:space-between;
+align-items:center;
+padding:15px 30px;
+background:white;
+box-shadow:0 2px 10px rgba(0,0,0,0.1);
+z-index:1000;
+}
+
+.logo{
+font-size:22px;
+font-weight:bold;
+color:#2A7FFF;
+}
+
+/* MENU */
+
+.menu{
+font-size:26px;
+cursor:pointer;
+position:relative;
+}
+
+.dropdown{
+display:none;
+position:absolute;
+right:0;
+top:35px;
+background:white;
+width:220px;
+border-radius:8px;
+box-shadow:0 10px 25px rgba(0,0,0,0.15);
+}
+
+.dropdown a{
+display:block;
+padding:12px;
+text-decoration:none;
+color:#333;
+border-bottom:1px solid #eee;
+}
+
+.dropdown a:hover{
+background:#eef4ff;
+}
+
+/* HERO */
+
+.hero{
+height:100vh;
+background:url("https://images.unsplash.com/photo-1587351021759-3e566b6af7cc?auto=format&fit=crop&w=1600&q=80") center/cover;
+display:flex;
+align-items:center;
+justify-content:center;
+text-align:center;
+color:white;
+padding:20px;
+}
+
+.hero h1{
+font-size:48px;
+margin-bottom:15px;
+}
+
+.hero p{
+font-size:20px;
+margin-bottom:20px;
+}
+
+.btn{
+background:#3ECF8E;
+border:none;
+padding:12px 25px;
+border-radius:6px;
+cursor:pointer;
+font-size:16px;
+}
+
+/* SECTIONS */
+
+section{
+padding:90px 10%;
+display:none;
+}
+
+#home{
+display:block;
+}
+
+.title{
+text-align:center;
+font-size:32px;
+margin-bottom:40px;
+color:#2A7FFF;
+}
+
+/* GRID */
+
+.grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+gap:25px;
+}
+
+.card{
+background:white;
+padding:25px;
+border-radius:10px;
+box-shadow:0 8px 20px rgba(0,0,0,0.08);
+text-align:center;
+}
+
+.card img{
+width:100%;
+height:150px;
+object-fit:cover;
+border-radius:8px;
+margin-bottom:10px;
+}
+
+/* ACHIEVEMENTS */
+
+.achievements{
+background:#2A7FFF;
+color:white;
+}
+
+.stats{
+display:flex;
+flex-wrap:wrap;
+justify-content:center;
+gap:40px;
+}
+
+.stat h2{
+font-size:38px;
+}
+
+/* FORM */
+
+.form{
+max-width:400px;
+margin:auto;
+background:white;
+padding:25px;
+border-radius:10px;
+box-shadow:0 6px 18px rgba(0,0,0,0.1);
+}
+
+input{
+width:100%;
+padding:10px;
+margin:10px 0;
+border:1px solid #ccc;
+border-radius:6px;
+}
+
+.msg{
+text-align:center;
+margin-top:10px;
+color:green;
+}
+
+</style>
+</head>
+<body>
+
+<div class="navbar">
+<div class="logo">Varusha Clinic</div>
+
+<div class="menu" onclick="toggleMenu()">⋮
+<div class="dropdown" id="dropdown">
+<a onclick="showPage('login')">Login / Signup</a>
+<a onclick="showPage('login')">Patient Login / Signup</a>
+<a onclick="showPage('register')">Registration</a>
+<a onclick="showPage('payment')">Payment</a>
+<a onclick="window.print()">Print</a>
+</div>
+</div>
+</div>
+
+<!-- HOME -->
+
+<section id="home">
+
+<div class="hero">
+<div>
+<h1>Welcome to Varusha Clinic</h1>
+<p>Your Health Is Our Priority</p>
+<button class="btn" onclick="scrollDown()">Explore</button>
+</div>
+</div>
+
+<br><br>
+
+<h2 class="title">Centre of Excellence</h2>
+
+<div class="grid">
+
+<div class="card">
+<img src="https://images.unsplash.com/photo-1579684385127-1ef15d508118">
+<h3>Cardiology</h3>
+</div>
+
+<div class="card">
+<img src="https://images.unsplash.com/photo-1582750433449-648ed127bb54">
+<h3>Neurology</h3>
+</div>
+
+<div class="card">
+<img src="https://images.unsplash.com/photo-1580281658629-7f0c7b3f2d0f">
+<h3>Orthopedics</h3>
+</div>
+
+<div class="card">
+<img src="https://images.unsplash.com/photo-1581595219315-a187dd40c322">
+<h3>Pediatrics</h3>
+</div>
+
+</div>
+
+<br><br>
+
+<h2 class="title">Our Doctors</h2>
+
+<div class="grid">
+
+<div class="card">
+<img src="https://images.unsplash.com/photo-1612349317150-e413f6a5b16d">
+<h3>Dr Arun</h3>
+<p>Cardiologist</p>
+</div>
+
+<div class="card">
+<img src="https://images.unsplash.com/photo-1559839734-2b71ea197ec2">
+<h3>Dr Meena</h3>
+<p>Neurologist</p>
+</div>
+
+<div class="card">
+<img src="https://images.unsplash.com/photo-1622253692010-333f2da6031d">
+<h3>Dr Rahul</h3>
+<p>Orthopedic</p>
+</div>
+
+<div class="card">
+<img src="https://images.unsplash.com/photo-1594824476967-48c8b964273f">
+<h3>Dr Priya</h3>
+<p>Pediatrician</p>
+</div>
+
+</div>
+
+<br><br>
+
+<div class="achievements">
+
+<h2 class="title" style="color:white">Achievements</h2>
+
+<div class="stats">
+
+<div class="stat">
+<h2>15+</h2>
+<p>Years Service</p>
+</div>
+
+<div class="stat">
+<h2>20K+</h2>
+<p>Patients Treated</p>
+</div>
+
+<div class="stat">
+<h2>50+</h2>
+<p>Doctors</p>
+</div>
+
+<div class="stat">
+<h2>10+</h2>
+<p>Departments</p>
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- LOGIN -->
+
+<section id="login">
+
+<h2 class="title">Login / Signup</h2>
+
+<div class="form">
+
+<input id="email" placeholder="Email">
+<input id="pass" type="password" placeholder="Password">
+
+<button class="btn" onclick="signup()">Signup</button>
+<button class="btn" onclick="login()">Login</button>
+
+<div class="msg" id="loginMsg"></div>
+
+</div>
+
+</section>
+
+<!-- REGISTRATION -->
+
+<section id="register">
+
+<h2 class="title">Patient Registration</h2>
+
+<div class="form">
+
+<input placeholder="Full Name">
+<input placeholder="Age">
+<input placeholder="Problem">
+
+<button class="btn" onclick="register()">Submit</button>
+
+<div class="msg" id="regMsg"></div>
+
+</div>
+
+</section>
+
+<!-- PAYMENT -->
+
+<section id="payment">
+
+<h2 class="title">Payment</h2>
+
+<div class="form">
+
+<input placeholder="Card Number">
+<input placeholder="Name on Card">
+
+<button class="btn" onclick="pay()">Pay Now</button>
+
+<div class="msg" id="payMsg"></div>
+
+</div>
+
+</section>
+
+<script>
+
+function toggleMenu(){
+let menu=document.getElementById("dropdown");
+menu.style.display=menu.style.display==="block"?"none":"block";
+}
+
+function showPage(id){
+
+document.querySelectorAll("section").forEach(s=>{
+s.style.display="none";
+});
+
+document.getElementById(id).style.display="block";
+
+window.scrollTo(0,0);
+}
+
+function scrollDown(){
+window.scrollBy({top:600,behavior:"smooth"});
+}
+
+function signup(){
+
+let email=document.getElementById("email").value;
+let pass=document.getElementById("pass").value;
+
+localStorage.setItem("email",email);
+localStorage.setItem("pass",pass);
+
+document.getElementById("loginMsg").innerText="Signup successful";
+}
+
+function login(){
+
+let email=document.getElementById("email").value;
+let pass=document.getElementById("pass").value;
+
+if(email===localStorage.getItem("email") &&
+pass===localStorage.getItem("pass")){
+document.getElementById("loginMsg").innerText="Login successful";
+}else{
+document.getElementById("loginMsg").innerText="Invalid login";
+}
+}
+
+function register(){
+document.getElementById("regMsg").innerText="Registration submitted";
+}
+
+function pay(){
+document.getElementById("payMsg").innerText="Payment successful";
+}
+
+</script>
+
+</body>
+</html>
